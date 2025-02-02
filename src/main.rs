@@ -50,7 +50,7 @@ fn get_note(freq: f64) -> String {
         "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"
     ];
 
-    let octave = (4f64 + (freq / 440.0).log2()) as i32;
+    let octave = (4f64 + (freq / 440.0).log2()).round() as i32;
     let note = notes[(((4f64 + (freq / 440.0).log2()) * 12f64).round() as usize) % 12];
     format!("{}{}", note, octave)
 }
